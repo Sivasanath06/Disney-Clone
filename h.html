@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+ .video-card-container{
+    position: relative;
+    width: 92%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    height: 10vw;
+    margin-bottom: 20px;
+
+ }
+ .video-card{
+    position: relative;
+  min-width: calc(100% / 5 - 10px);
+  width: calc(100% / 5 - 10px);;
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    
+ }
+ .video-card-image,.card-video{
+width: 100%;
+height: 100%;
+object-fit: cover;
+ }
+ .card-video {
+  position: absolute;
+}
+.video-card:hover .video-card-image{
+    display: none;
+}
+</style>
+<body>
+    <div class="video-card-container">
+        <div class="video-card">
+          <img src="disney.png" class="video-card-image" alt="" />
+          <video src="disney.mp4" muted loop class="card-video"></video>
+        </div>
+        <div class="video-card">
+          
+          <img src="pixar.png" class="video-card-image" alt="" />
+          <video src="pixar.mp4" muted loop class="card-video"></video>
+        </div>
+        <div class="video-card">
+          <img src="marvel.png" class="video-card-image" alt="" />
+          <video src="marvel.mp4" muted loop class="card-video"></video>
+        </div>
+        <div class="video-card">
+          <img src="star-wars.png" class="video-card-image" alt="" />
+          <video src="star-war.mp4" muted loop class="card-video"></video>
+        </div>
+        <div class="video-card">
+          <img src="geographic.png" class="video-card-image" alt="" />
+          <video src="geographic.mp4" muted loop class="card-video"></video>
+        </div>
+      </div>
+      <script>
+        const videoCards = [...document.querySelectorAll(".video-card")];
+        videoCards.forEach((item)=>{
+            item.addEventListener("mouseover",()=>{
+                let video=item.children[1];
+                video.play();
+            })
+        });
+        videoCards.forEach((item)=>{
+            item.addEventListener("mouseleave",()=>{
+                let video=item.children[1];
+                video.pause();
+            })
+        });
+        
+      </script>
+</body>
+</html>
